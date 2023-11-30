@@ -35,7 +35,7 @@ public class RestServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		Client client = ClientBuilder.newBuilder().build();
-		WebTarget base = client.target("http://localhost:8080/TP2_EX1/RestApi/etudiants");
+		WebTarget base = client.target("http://localhost:8080/Learner_Etudiant_API/RestApi/etudiants/");
 		String id = request.getParameter("id");
 		WebTarget target = base.path("/" + id);
 
@@ -73,7 +73,7 @@ public class RestServlet extends HttpServlet {
 
 		// Make a POST request to your REST service
 		Client client = ClientBuilder.newBuilder().build();
-		WebTarget base = client.target("http://localhost:8080/TP2_EX1/RestApi/etudiants");
+		WebTarget base = client.target("http://localhost:8080/Learner_Etudiant_API/RestApi/etudiants/");
 		Response resp = base.request().post(Entity.json(json));
 
 		// Check the response and handle it as needed
@@ -104,7 +104,7 @@ public class RestServlet extends HttpServlet {
 		JsonObject json = Json.createObjectBuilder().add("id", id).add("moyenne", moyenne).add("nom", nom).build();
 
 		Client client = ClientBuilder.newBuilder().build();
-		WebTarget base = client.target("http://localhost:8080/TP2_EX1/RestApi/etudiants");
+		WebTarget base = client.target("http://localhost:8080/Learner_Etudiant_API/RestApi/etudiants");
 		WebTarget target = base.path(id); // Assuming ID is the resource identifier
 
 		Response resp = target.request().put(Entity.json(json));
@@ -131,7 +131,7 @@ public class RestServlet extends HttpServlet {
 		String id = request.getParameter("id");
 
 		Client client = ClientBuilder.newBuilder().build();
-		WebTarget base = client.target("http://localhost:8080/TP2_EX1/RestApi/etudiants");
+		WebTarget base = client.target("http://localhost:8080/Learner_Etudiant_API/RestApi/etudiants");
 		WebTarget target = base.path(id); // Assuming ID is the resource identifier
 
 		Response resp = target.request().delete();
